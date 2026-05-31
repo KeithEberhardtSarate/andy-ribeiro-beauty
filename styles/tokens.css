@@ -27,7 +27,7 @@
   --serif: var(--font-playfair), "Times New Roman", serif;
   --sans:  var(--font-manrope), "Helvetica Neue", system-ui, sans-serif;
   --mono:  var(--font-jetbrains), ui-monospace, monospace;
-  --sig:   var(--font-pinyon), cursive;
+  --sig:   "Pinyon Script", cursive;
 
   /* ---- layout ---- */
   --maxw: 1180px;

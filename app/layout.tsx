@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope, JetBrains_Mono, Pinyon_Script } from "next/font/google";
+import { Playfair_Display, Manrope, JetBrains_Mono } from "next/font/google";
 import "@/styles/tokens.css";
 import "@/styles/base.css";
 import "@/styles/components.css";
@@ -30,13 +30,6 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const pinyon = Pinyon_Script({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-pinyon",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: "Andy Ribeiro — Especialista em Olhar",
   description:
@@ -51,8 +44,21 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${playfair.variable} ${manrope.variable} ${jetbrains.variable} ${pinyon.variable}`}
+      className={`${playfair.variable} ${manrope.variable} ${jetbrains.variable}`}
     >
+      <head>
+        {/* Pinyon Script: removida do next/font no Next 16, carregada via Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
