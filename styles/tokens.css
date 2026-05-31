@@ -1,0 +1,34 @@
+/* ===================================================================
+   ANDY RIBEIRO — DESIGN TOKENS
+   Editorial / revista · serif dramática + mono tracked + acento magenta
+   Cores em oklch. Fontes injetadas via next/font (ver app/layout.tsx).
+   =================================================================== */
+
+:root {
+  /* ---- superfícies ---- */
+  --blush:        oklch(0.965 0.012 12);   /* fundo creme rosado claro */
+  --blush-2:      oklch(0.94 0.022 10);    /* blush mais saturado */
+  --paper:        oklch(0.985 0.008 20);   /* quase branco */
+  --ink:          oklch(0.17 0.012 350);   /* preto carvão com tom quente */
+  --ink-2:        oklch(0.22 0.015 350);   /* near-black p/ frames escuros */
+  --ink-soft:     oklch(0.42 0.018 350);
+  --ink-mute:     oklch(0.58 0.015 350);
+  --line:         oklch(0.86 0.018 10);
+  --line-soft:    oklch(0.91 0.015 12);
+
+  /* ---- acento magenta ---- */
+  --pink:         oklch(0.62 0.22 5);      /* magenta vibrante — acento */
+  --pink-deep:    oklch(0.55 0.22 5);
+  --pink-light:   oklch(0.96 0.04 5);      /* fundo rosa MUITO claro */
+  --pink-bg:      oklch(0.66 0.22 5);      /* full-bleed pink */
+  --pink-bg-deep: oklch(0.58 0.22 5);
+
+  /* ---- tipografia (next/font expõe as --font-*; fallbacks após) ---- */
+  --serif: var(--font-playfair), "Times New Roman", serif;
+  --sans:  var(--font-manrope), "Helvetica Neue", system-ui, sans-serif;
+  --mono:  var(--font-jetbrains), ui-monospace, monospace;
+  --sig:   var(--font-pinyon), cursive;
+
+  /* ---- layout ---- */
+  --maxw: 1180px;
+}

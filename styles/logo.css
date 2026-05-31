@@ -1,0 +1,99 @@
+/* ===================================================================
+   LOGO H1 — Serifa fina + script (a marca principal)
+   Componente: components/Logo.tsx
+   Tamanhos via --logo-* vars · temas de cor via modificadores.
+   =================================================================== */
+
+.logo {
+  /* defaults = tamanho "lg" */
+  --logo-toplabel: 11px;
+  --logo-toplabel-mb: 16px;
+  --logo-row: 46px;
+  --logo-row-gap: 14px;
+  --logo-name: 72px;
+  --logo-rule-w: 90px;
+  --logo-rule-gap: 18px;
+  --logo-rule-mt: 18px;
+  --logo-nm: 12px;
+
+  /* cores (tema light por padrão) */
+  --logo-word: var(--ink);
+  --logo-script: var(--pink);
+  --logo-meta: var(--ink-mute);
+  --logo-line: var(--ink);
+  --logo-nm-color: var(--ink);
+
+  text-align: center;
+  display: inline-block;
+}
+
+.logo .topLabel {
+  font-family: var(--mono); font-size: var(--logo-toplabel); letter-spacing: 0.34em;
+  text-transform: uppercase; color: var(--logo-meta);
+  margin: 0 0 var(--logo-toplabel-mb); padding-left: 0.34em;
+}
+.logo .row {
+  font-family: var(--serif); font-weight: 400; font-size: var(--logo-row); letter-spacing: 0.08em;
+  color: var(--logo-word); display: flex; align-items: center; justify-content: center;
+  gap: var(--logo-row-gap); line-height: 1; white-space: nowrap;
+}
+.logo .row .name {
+  font-family: var(--sig); font-size: var(--logo-name); letter-spacing: 0; text-transform: none;
+  color: var(--logo-script); font-weight: 400; line-height: 0.7;
+}
+.logo .ruleRow { display: flex; align-items: center; justify-content: center; gap: var(--logo-rule-gap); margin-top: var(--logo-rule-mt); }
+.logo .ruleRow .l { width: var(--logo-rule-w); height: 1px; background: var(--logo-line); }
+.logo .ruleRow .nm {
+  font-family: var(--mono); font-size: var(--logo-nm); letter-spacing: 0.34em;
+  text-transform: uppercase; color: var(--logo-nm-color); padding-left: 0.34em;
+}
+
+/* ---------- TAMANHOS ---------- */
+.logo--md {
+  --logo-toplabel: 10px; --logo-toplabel-mb: 14px;
+  --logo-row: 38px; --logo-row-gap: 12px; --logo-name: 60px;
+  --logo-rule-w: 76px; --logo-rule-gap: 16px; --logo-rule-mt: 16px; --logo-nm: 11px;
+}
+.logo--sm {
+  --logo-toplabel: 9.5px; --logo-toplabel-mb: 13px;
+  --logo-row: 34px; --logo-row-gap: 12px; --logo-name: 54px;
+  --logo-rule-w: 64px; --logo-rule-gap: 16px; --logo-rule-mt: 14px; --logo-nm: 10px;
+}
+.logo--nav {
+  --logo-toplabel: 7.5px; --logo-toplabel-mb: 5px;
+  --logo-row: 20px; --logo-row-gap: 7px; --logo-name: 31px;
+  --logo-rule-w: 34px; --logo-rule-gap: 9px; --logo-rule-mt: 6px; --logo-nm: 8px;
+}
+
+/* ---------- TEMAS DE COR ---------- */
+/* light = padrão (definido em .logo) */
+.logo--dark {
+  --logo-word: var(--paper);
+  --logo-script: var(--pink);
+  --logo-meta: color-mix(in oklab, var(--paper) 62%, transparent);
+  --logo-line: color-mix(in oklab, var(--paper) 70%, transparent);
+  --logo-nm-color: var(--paper);
+}
+.logo--pink {
+  --logo-word: var(--paper);
+  --logo-script: var(--paper);
+  --logo-meta: color-mix(in oklab, var(--paper) 80%, transparent);
+  --logo-line: color-mix(in oklab, var(--paper) 78%, transparent);
+  --logo-nm-color: var(--paper);
+}
+.logo--mono {
+  --logo-word: var(--ink);
+  --logo-script: var(--ink);
+  --logo-meta: var(--ink);
+  --logo-line: var(--ink);
+  --logo-nm-color: var(--ink);
+}
+
+/* ===================================================================
+   LOGO EMPILHADO — lockup p/ avatar, carimbo, espaços quadrados
+   Componente: <Logo layout="stacked" />
+   =================================================================== */
+.logoStack { display: flex; flex-direction: column; align-items: center; gap: 4px; line-height: 1; }
+.logoStack .name { font-family: var(--sig); font-size: 52px; color: var(--pink); line-height: 0.62; }
+.logoStack .word { font-family: var(--serif); font-size: 17px; letter-spacing: 0.22em; color: var(--paper); padding-left: 0.22em; }
+.logoStack .sub { font-family: var(--mono); font-size: 7px; letter-spacing: 0.34em; color: color-mix(in oklab, var(--paper) 64%, transparent); margin-top: 5px; }

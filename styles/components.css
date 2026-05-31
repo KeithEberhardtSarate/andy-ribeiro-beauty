@@ -1,0 +1,157 @@
+/* ===================================================================
+   COMPONENTES BASE · meta-row, nav, botão, portrait, footer
+   =================================================================== */
+
+/* ---- meta-row (linha editorial topo de seção) ---- */
+.meta-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-top: 1px solid var(--ink);
+  padding-top: 16px; margin-bottom: 64px;
+}
+.meta-row .m {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink);
+}
+.meta-row .m.pink { color: var(--pink); }
+.meta-row.on-dark { border-top-color: color-mix(in oklab, var(--paper) 30%, transparent); }
+.meta-row.on-dark .m { color: var(--paper); }
+.meta-row.on-dark .m.pink { color: var(--pink); }
+.meta-row.on-pink { border-top-color: color-mix(in oklab, var(--paper) 60%, transparent); }
+.meta-row.on-pink .m { color: var(--paper); }
+
+/* ---- NAV ---- */
+nav.top {
+  position: sticky; top: 0; z-index: 30;
+  background: color-mix(in oklab, var(--blush) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line-soft);
+}
+nav.top .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand .mark {
+  width: 38px; height: 38px; border-radius: 999px;
+  background: var(--pink); color: var(--paper);
+  display: grid; place-items: center;
+  font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.brand .name {
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--pink);
+}
+.brand .name small {
+  display: block;
+  font-family: var(--mono); font-size: 9.5px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-mute); margin-top: 5px; font-weight: 400;
+}
+nav.top .links { display: flex; gap: 28px; align-items: center; }
+nav.top .links a {
+  font-family: var(--mono); font-size: 10.5px;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-soft);
+}
+nav.top .links a:hover { color: var(--pink); }
+nav.top .links .btn { padding: 12px 20px; }
+
+/* ---- BOTÃO ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 15px 26px;
+  background: var(--pink); color: var(--paper);
+  font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  border: 1px solid var(--pink); border-radius: 999px;
+  transition: all .22s ease; cursor: pointer;
+}
+.btn:hover { background: var(--pink-deep); border-color: var(--pink-deep); transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--paper); transform: translateY(-1px); }
+.btn.on-dark { background: var(--pink); color: var(--paper); border-color: var(--pink); }
+.btn.on-dark.ghost { background: transparent; color: var(--paper); border-color: var(--paper); }
+.btn.on-dark.ghost:hover { background: var(--paper); color: var(--ink); }
+.btn .arrow { width: 14px; height: 1px; background: currentColor; position: relative; }
+.btn .arrow::after {
+  content: ""; position: absolute; right: 0; top: -3px;
+  width: 7px; height: 7px; border-right: 1px solid currentColor; border-top: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+
+/* ---- badge ---- */
+.badge {
+  font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.26em;
+  text-transform: uppercase; color: var(--pink); border: 1px solid var(--pink); padding: 6px 12px;
+}
+
+/* ---- PORTRAIT / placeholder editorial ---- */
+.portrait {
+  position: relative; aspect-ratio: 4 / 5;
+  background: var(--pink-bg);
+  border: 1px solid var(--pink-bg-deep);
+  overflow: hidden;
+}
+.portrait::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image: repeating-linear-gradient(
+    135deg, transparent 0 16px,
+    color-mix(in oklab, white 12%, transparent) 16px 17px);
+}
+.portrait.has-img::before { display: none; }
+.portrait .tag {
+  position: absolute; left: 18px; top: 18px; z-index: 2;
+  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--paper);
+  border: 1px solid color-mix(in oklab, white 50%, transparent); padding: 7px 11px;
+}
+.portrait .caption {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  background: var(--ink-2); padding: 18px;
+  display: flex; justify-content: space-between; align-items: baseline; color: var(--paper);
+}
+.portrait .caption .who {
+  font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 22px;
+}
+.portrait .caption .role {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: color-mix(in oklab, var(--paper) 65%, transparent);
+}
+
+/* moldura editorial p/ imagens */
+.slot-frame { position: relative; }
+
+/* ---- FOOTER ---- */
+footer.site {
+  background: var(--ink-2); color: color-mix(in oklab, var(--paper) 75%, transparent);
+  padding: 90px 0 36px;
+}
+footer.site .top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 60px;
+  padding-bottom: 60px; border-bottom: 1px solid color-mix(in oklab, var(--paper) 15%, transparent);
+}
+footer.site h4 {
+  font-family: var(--serif); font-weight: 700; font-size: 40px;
+  letter-spacing: -0.02em; line-height: 1; color: var(--paper);
+  margin: 0 0 18px; max-width: 380px;
+}
+footer.site h4 em { font-style: italic; font-weight: 500; color: var(--pink); }
+footer.site .lbl {
+  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--pink); margin-bottom: 18px;
+}
+footer.site ul { list-style: none; padding: 0; margin: 0; }
+footer.site ul li { padding: 7px 0; font-size: 14px; }
+footer.site ul li a:hover { color: var(--pink); }
+footer.site .bottom {
+  display: flex; justify-content: space-between; align-items: baseline; padding-top: 32px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: color-mix(in oklab, var(--paper) 50%, transparent);
+}
+footer.site .bottom a { color: var(--pink); }
+
+/* ---- mobile base ---- */
+@media (max-width: 880px) {
+  nav.top .links a:not(.btn) { display: none; }
+  footer.site .top { grid-template-columns: 1fr; gap: 40px; }
+}
